@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the World | Tourist Guide</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 30px; /* Increased padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            color: white;
+            font-size: 30px; /* Increased font size */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px; /* Space between icon and text */
+            font-size: 32px; /* Increase icon size */
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            margin: 0 20px; /* Add space between logo and search bar */
+        }
+
+        .search-container input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-right: 5px;
+            border: 2px solid white;
+            width: 100%; /* Full width for input */
+            max-width: 300px; /* Limit width for input */
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            border: none;
+            background-color: white;
+            color: #4CAF50;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px; /* Increased font size for links */
+            display: flex;
+            align-items: center;
+            padding: 10px 15px; /* Add padding to prevent cutoff */
+            transition: color 0.3s, transform 0.3s; /* Transition effect */
+        }
+
+        .nav-links a i {
+            margin-right: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #f0f8ff; /* Change color on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header i {
+            font-size: 50px; /* Size of the user icon */
+            margin-right: 20px;
+            color: #4CAF50; /* Icon color */
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .nav-buttons a {
+            background-color: white;
+            color: #4CAF50;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-weight: bold;
+            border: 2px solid #4CAF50;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 2vh;
+            color: black;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .destination-list {
+            display: flex;
+            justify-content: space-between; 
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .destination {
+            width: calc(33.333% - 20px); 
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .destination:hover {
+            transform: scale(1.05);
+        }
+
+        .destination img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .destination h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .destination p {
+            font-size: 16px;
+            padding: 0 10px 20px;
+            color: #555;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class='bx bxs-plane'></i> <!-- Logo icon -->
+            TrailWings
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">
+                <i class='bx bxs-home'></i> Home
+            </a>
+            
+           
+            <a href="profile.php">
+                <i class='bx bxs-user'></i> Profile
+            </a>
+        </div>
+    </header>
+    <section id="home" class="hero">
+        <h1>Discover the charm of every corner of the world</h1>
+        <p> where history, culture, and nature blend into moments of pure awe.
+
+</p>
+        
+    </section>
+
+
+
+    <section id="destinations" class="section">
+        <div class="destination-list">
+            <div class="destination">
+                <img src="paris.jpg" alt="Paris">
+                <h3>Paris, France</h3>
+                <p>Paris, the enchanting 'City of Lights', captivates with its blend of history, art, and romance. Its cobblestone streets lead to iconic landmarks like the Eiffel Tower and Notre-Dame. By night, the Seine River reflects shimmering illuminations, echoing the city's luminous spirit. An epicenter of culture and elegance, Paris remains an eternal muse for visitors from around the globe.</p>
+            </div>
+            <div class="destination">
+                <img src="london.jpg" alt="London">
+                <h3>London, England</h3>
+                <p>London, the heart of England, stands as a vibrant mosaic of history, culture, and innovation. From the regal Buckingham Palace and the echoing bells of Big Ben to the modern Shard piercing the skyline, the city embodies the nation's heritage. Cobblestone streets, iconic red buses, and the River Thames intertwining its fabric, London offers an immersive journey through centuries, celebrating the essence of English tradition while embracing the future.</p>
+            </div>
+            <div class="destination">
+                <img src="dubai.jpeg" alt="Dubai">
+                <h3>Dubai, UAE</h3>
+                <p>Dubai, a jewel in the UAE's crown, stands as a testament to ambition and innovation. Rising from desert sands, its skyline boasts architectural marvels like the Burj Khalifa, piercing the heavens. Luxury shopping malls coexist with historic souks, offering a blend of tradition and modernity. As a city that never stops evolving, Dubai dazzles with its opulence, technological feats, and a vision that ceaselessly pushes the boundaries of urban development.</p>
+            </div>
+            <div class="destination">
+                <img src="maldives.jpeg" alt="Maldaives">
+                <h3>Maldives, Maldives</h3>
+                <p>The Maldives, an archipelago of over a thousand islands, emerges from the Indian Ocean as a tropical haven. Each atoll, with its aquamarine waters and powdery white sands, paints a picture of paradise. Overwater bungalows offer uninterrupted vistas of endless horizons, while vibrant coral reefs beneath the surface teem with marine life. For those seeking solitude and luxury embraced by nature's beauty, the Maldives is the quintessential retreat.</p>
+            </div>
+            <div class="destination">
+                <img src="bali.jpg" alt="Bali">
+                <h3>Bali, Indonesia</h3>
+                <p>Bali, nestled within the vast Indonesian archipelago, stands as an idyllic retreat for souls seeking tranquility and enchantment. Its landscapes, where verdant rice terraces merge with sun-drenched beaches, create a tapestry of natural beauty. Ancient temples, the gentle hum of Gamelan, and the intricate dance performances narrate tales of tradition and spirituality. From the bustling streets of Seminyak to the serene vibes of Ubud, Bali promises a rejuvenating escape into a tropical dream.</p>
+            </div>
+            <div class="destination">
+                <img src="nyc.jpg" alt="New York City">
+                <h3>New York City, USA</h3>
+                <p>New York City, often dubbed 'The City that Never Sleeps', pulsates with unyielding energy. Its iconic skyline, punctuated by skyscrapers like the Empire State and One World Trade, stands as a beacon of ambition and dreams. The bustling streets, from Broadway's glowing marquees to Central Park's tranquil paths, tell tales of millions. A melting pot of cultures, arts, and ideas, NYC promises a perpetual dance of experiences, keeping its promise of sleepless wonder.
+            </p></div>
+            <div class="destination">
+                <img src="tokyo.webp" alt="Tokyo">
+                <h3>Tokyo, Japan</h3>
+                <p>Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens. The city's many museums offer exhibits ranging from classical art (in the Tokyo National Museum) to a reconstructed kabuki theater (in the Edo-Tokyo Museum). </p>
+            </div>
+            <div class="destination">
+                <img src="rome.jpeg" alt="Rome">
+                <h3>Rome, Italy</h3>
+                <p>The Colosseum in Rome, an enduring symbol of ancient grandeur, stands as a testament to the Roman Empire's architectural prowess and its thirst for spectacle. Once echoing with the roars of gladiators and spectators alike, this colossal amphitheater, with its arches and worn stones, evokes tales of bravery, drama, and human endeavor. A visit transports one back in time, offering a poignant glimpse into the heart of ancient civilization and its vast cultural tapestry.</p>
+            </div>
+            <div class="destination">
+                <img src="mumbai.jpeg" alt="Mumbai">
+                <h3>Mumbai, India</h3>
+                <p>Mumbai, the bustling heart of Maharashtra, is often hailed as the 'City of Dreams'. Its skyline, a blend of colonial architecture and modern high-rises, tells tales of aspiration and evolution. From the vibrant lanes of Colaba to the serene Marine Drive promenade, Mumbai pulsates with energy. As the home of Bollywood and a melting pot of cultures, it promises a tapestry of experiences, where dreams take flight amidst its chaotic yet charismatic embrace.</p>
+            </div>
+            <div class="destination">
+                <img src="hongkong.jpeg" alt="hongkong">
+                <h3>Hong Kong, Hong Kong</h3>
+                <p>Hong Kong, a dynamic metropolis, melds East and West in a vibrant tapestry of culture, commerce, and cuisine. Its iconic skyline, studded with futuristic skyscrapers, stands sentinel over bustling harbors and tranquil green mountains. From the aromatic alleyways of Temple Street Night Market to the serene trails of Lantau Island, Hong Kong offers a rich blend of urban energy and natural beauty, encapsulating the very essence of contrast and harmony.</p>
+            </div>
+            <div class="destination">
+                <img src="sydney.jpeg" alt="sydney">
+                <h3>Sydney, Australia</h3>
+                <p>Sydney, Australia's gleaming harbor city, delivers the quintessential Australian experience. Framed by the iconic Sydney Opera House and the sprawling Harbour Bridge, it's a vibrant blend of culture, cuisine, and coastal beauty. From the golden sands of Bondi Beach to its bustling markets and cosmopolitan nightlife, Sydney encapsulates the spirit of Down Under. Offering both urban allure and natural wonders, it's a destination that captures the heart and soul of the continent.</p>
+            </div>
+            <div class="destination">
+                <img src="egypt.jpeg" alt="egypt">
+                <h3>Egypt, Egypt</h3>
+                <p>The Pyramids of Giza, standing tall on Egypt's desert plains, are enduring symbols of ancient marvel and mystery. Built as grand tombs for pharaohs, these monumental structures have for millennia captivated imaginations with their scale and precision. The Sphinx, silent guardian of the pyramids, adds to the enigma. A visit to this UNESCO World Heritage site is not just a journey through sand and stone, but a leap back in time to a civilization's zenith.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <p>&copy; 2024 Explore the World. All Rights Reserved.</p>
+       
+    </footer>
+</body>
+</html>

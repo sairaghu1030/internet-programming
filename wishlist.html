@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .item-list {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .item img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-btn {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #ff4b4b;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        ul li {
+            background-color: #eee;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Wishlist</h1>
+
+        <div class="item-list">
+            <div class="item">
+                <!-- Replace 'images/item1.jpg' with the actual path of the image in your folder -->
+                <img src="paris.jpg" alt="paris">
+                <h2>paris</h2>
+                <button class="wishlist-btn" onclick="addToWishlist('paris added to wishlist')">Add to Wishlist</button>
+            </div>
+
+            <div class="item">
+                <!-- Replace 'images/item2.jpg' with the actual path of the image in your folder -->
+                <img src="london.jpg" alt="london">
+                <h2>london</h2>
+                <button class="wishlist-btn" onclick="addToWishlist('london added to wishlist')">Add to Wishlist</button>
+            </div>
+
+            <div class="item">
+                <!-- Replace 'images/item3.jpg' with the actual path of the image in your folder -->
+                <img src="dubai.jpeg" alt="dubai">
+                <h2>dubai</h2>
+                <button class="wishlist-btn" onclick="addToWishlist('dubai added to wishlist')">Add to Wishlist</button>
+            </div>
+        </div>
+
+        <h2>Your Wishlist</h2>
+        <ul id="wishlist">
+            <!-- Items added to the wishlist will appear here -->
+        </ul>
+    </div>
+
+    <script>
+        function addToWishlist(itemName) {
+            var wishlist = document.getElementById("wishlist");
+            var listItem = document.createElement("li");
+            listItem.textContent = itemName;
+            wishlist.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
